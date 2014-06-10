@@ -1,0 +1,17 @@
+Source: vyatta-anyfi-common
+Section: contrib/net
+Priority: extra
+Maintainer: Anyfi Networks <eng@anyfinetworks.com>
+Standards-Version: 3.9.1
+Build-Depends: debhelper (>= 5), autotools-dev, autoconf, cpio
+
+Package: vyatta-anyfi-common
+Architecture: all
+Depends: vyatta-cfg-system,
+ vyatta-cfg,
+ vyatta-op,
+ ${misc:Depends}
+Replaces: vyatta-anyfi-common
+Description: Vyatta integration for Anyfi SDWN products
+ Common Vyatta integration for the Software-Defined Wireless
+ Networking (SDWN) products from Anyfi Networks.

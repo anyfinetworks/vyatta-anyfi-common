@@ -1,0 +1,4 @@
+This package has Vyatta configuration templates and scripts common
+to the Anyfi Controller, the Anyfi Gateway and the Anyfi Optimier.
+
+See README.md for details.
