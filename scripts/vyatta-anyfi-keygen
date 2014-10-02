@@ -1,0 +1,24 @@
+#!/bin/sh
+
+FILE=/config/auth/rsa-key-pair-${RANDOM}.pem
+BITS=2048
+
+while getopts b:f:h c
+do
+  case $c in
+    b)       BITS=$OPTARG;;
+
+    f)       FILE=$OPTARG;;
+
+    *)       echo "Usage: vyatta-anyfi-keygen [-b bits] [-f file]";
+             exit 1;;
+  esac
+done
+
+if ! openssl genrsa -out $FILE $BITS 2> /dev/null; then
+    exit 2
+fi
+
+openssl rsa -in $FILE -pubout -outform DER 2>/dev/null | sha256sum | cut -c1-64
+
+exit 0

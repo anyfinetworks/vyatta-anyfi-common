@@ -4,6 +4,8 @@ opdir = $(datadir)/vyatta-op/templates
 vprefix = /opt/vyatta
 vsbindir = $(vprefix)/sbin
 
+bin_SCRIPTS = scripts/vyatta-anyfi-keygen
+
 cpiop = find  . ! -regex '\(.*~\|.*\.bak\|.*\.swp\|.*\#.*\#\)' -print0 | \
   cpio -0pd
 
