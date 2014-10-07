@@ -5,14 +5,18 @@ BITS=2048
 
 while getopts b:f:h c
 do
-  case $c in
-    b)       BITS=$OPTARG;;
-
-    f)       FILE=$OPTARG;;
-
-    *)       echo "Usage: vyatta-anyfi-keygen [-b bits] [-f file]";
-             exit 1;;
-  esac
+    case $c in
+        b)
+            BITS=$OPTARG
+            ;;
+        f)
+            FILE=$OPTARG
+            ;;
+        *)
+            echo "Usage: vyatta-anyfi-keygen [-b bits] [-f file]";
+            exit 1
+            ;;
+    esac
 done
 
 if ! openssl genrsa -out $FILE $BITS 2> /dev/null; then
