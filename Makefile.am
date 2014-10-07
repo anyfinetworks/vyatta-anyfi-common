@@ -10,6 +10,8 @@ bin_sudo_users_SCRIPTS =
 
 curver_DATA = 
 
+sbin_SCRIPTS = scripts/vyatta-anyfi-stop-daemon
+
 cpiop = find  . ! -regex '\(.*~\|.*\.bak\|.*\.swp\|.*\#.*\#\)' -print0 | \
   cpio -0pd
 
