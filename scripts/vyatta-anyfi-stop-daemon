@@ -1,0 +1,20 @@
+#!/bin/sh
+
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $(basename $0) <pidfile>"
+    exit 1
+fi
+
+pidfile=$1
+
+[ -e $pidfile ] || exit 2
+
+kill -TERM $(cat $pidfile) > /dev/null 2>&1
+for t in $(seq 1 20); do
+    [ -e $pidfile ] || exit 0
+    sleep 0.25
+done
+
+kill -KILL $(cat $pidfile) > /dev/null 2>&1
+rm -f $pidfile
+exit 3
